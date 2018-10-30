@@ -2,7 +2,6 @@ require 'active_support/all'
 require 'action_controller'
 require 'action_dispatch'
 require 'active_model'
-require 'active_record'
 require 'rails'
 require 'decent_exposure'
 
@@ -26,6 +25,11 @@ module Rails
       @routes
     end
   end
+
+  def self.rails5?
+    Rails.version.start_with?('5')
+  end
+
   def self.application
     @app ||= App.new
   end
